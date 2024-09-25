@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mathieu Topsi</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #f0f0f0;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 24px;
+            color: #6200ee;
+            font-weight: bold;
+        }
+        nav a {
+            color: #6200ee;
+            text-decoration: none;
+            margin-left: 20px;
+        }
+        .hero {
+            text-align: center;
+            padding: 50px 20px;
+        }
+        .hero h1 {
+            font-size: 48px;
+            color: #6200ee;
+        }
+        .hero p {
+            font-size: 18px;
+            color: #333;
+        }
+        .portfolio {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        .portfolio-item {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        .portfolio-item img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Mathieu Topsi</div>
+        <nav>
+            <a href="#work">Work</a>
+            <a href="#play">Play</a>
+            <a href="#hey">Hey</a>
+            <a href="#contact">Let's Talk</a>
+        </nav>
+    </header>
+    <main>
+        <section class="hero">
+            <h1>There are [X] Mathieu Topsi's in the world.</h1>
+            <p>This one is a marketing maverick & startup whisperer.</p>
+        </section>
+        <section class="portfolio">
+            <!-- Repeat this structure for each portfolio item -->
+            <div class="portfolio-item">
+                <img src="path_to_your_image.jpg" alt="Project description">
+                <h3>Project Title</h3>
+                <p>Brief project description</p>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
