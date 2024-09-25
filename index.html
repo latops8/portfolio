@@ -6,17 +6,24 @@
     <title>Mathieu Topsi</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             background-color: #f0f0f0;
             margin: 0;
             padding: 0;
+            color: #333;
         }
         header {
             background-color: #f0f0f0;
             padding: 20px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            border-bottom: 2px solid #6200ee;
         }
         .logo {
             font-size: 24px;
@@ -27,18 +34,20 @@
             color: #6200ee;
             text-decoration: none;
             margin-left: 20px;
+            font-weight: bold;
         }
         .hero {
             text-align: center;
-            padding: 50px 20px;
+            padding: 150px 20px 50px;
         }
         .hero h1 {
             font-size: 48px;
             color: #6200ee;
+            margin-bottom: 10px;
         }
         .hero p {
             font-size: 18px;
-            color: #333;
+            color: #666;
         }
         .portfolio {
             display: grid;
@@ -47,13 +56,31 @@
             padding: 20px;
         }
         .portfolio-item {
-            background-color: #fff;
-            padding: 20px;
+            position: relative;
+            overflow: hidden;
             border-radius: 5px;
         }
         .portfolio-item img {
-            max-width: 100%;
+            width: 100%;
             height: auto;
+            transition: transform 0.3s ease;
+        }
+        .portfolio-item:hover img {
+            transform: scale(1.05);
+        }
+        .portfolio-item-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(98, 0, 238, 0.8);
+            color: white;
+            padding: 10px;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        .portfolio-item:hover .portfolio-item-info {
+            transform: translateY(0);
         }
     </style>
 </head>
@@ -69,17 +96,36 @@
     </header>
     <main>
         <section class="hero">
-            <h1>There are [X] Mathieu Topsi's in the world.</h1>
-            <p>This one is a marketing maverick & startup whisperer.</p>
+            <h1>There are X Mathieu Topsi's in the world.</h1>
+            <p>This one is a marketing maverick & startup whisperer. This one is a marketing maverick & startup whisperer.</p>
         </section>
         <section class="portfolio">
-            <!-- Repeat this structure for each portfolio item -->
             <div class="portfolio-item">
-                <img src="path_to_your_image.jpg" alt="Project description">
-                <h3>Project Title</h3>
-                <p>Brief project description</p>
+                <img src="https://via.placeholder.com/400x300" alt="Project 1">
+                <div class="portfolio-item-info">
+                    <h3>Project 1</h3>
+                    <p>Brief description of Project 1</p>
+                </div>
             </div>
+            <div class="portfolio-item">
+                <img src="https://via.placeholder.com/400x300" alt="Project 2">
+                <div class="portfolio-item-info">
+                    <h3>Project 2</h3>
+                    <p>Brief description of Project 2</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <img src="https://via.placeholder.com/400x300" alt="Project 3">
+                <div class="portfolio-item-info">
+                    <h3>Project 3</h3>
+                    <p>Brief description of Project 3</p>
+                </div>
+            </div>
+            <!-- Add more portfolio items as needed -->
         </section>
     </main>
+    <script>
+        // You can add JavaScript here for additional interactivity
+    </script>
 </body>
 </html>
