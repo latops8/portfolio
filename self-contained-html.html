@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security Awareness Transformation Analysis</title>
+    
+    <!-- Dependencies -->
+    <script src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/recharts/umd/Recharts.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+    <style>
+        /* Additional custom styles */
+        body {
+            margin: 0;
+            padding: 20px;
+            background-color: #f3f4f6;
+        }
+        .chart-container {
+            background-color: white;
+            border-radius: 8px;
+            padding: 16px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        // Data
+        const monthlyData = [
+            { month: 'Jan', reports: 60, success: 48, failure: 9 },
+            { month: 'Feb', reports: 120, success: 52, failure: 7 },
+            { month: 'Mar', reports: 250, success: 58, failure: 5 },
+            { month: 'Apr', reports: 380, success: 61, failure: 4 },
+            { month: 'May', reports: 500, success: 63, failure: 3 },
+            { month: 'Jun', reports: 650, success: 65, failure: 2.5 },
+            { month: 'Jul', reports: 780, success: 67, failure: 2 },
+            { month: 'Aug', reports: 900, success: 68, failure: 1.8 }
+        ];
+
+        // Component
+        function SecurityAnalysis() {
+            const {
+                LineChart, Line, XAxis, YAxis, CartesianGrid, 
+                Tooltip, Legend, ResponsiveContainer
+            } = Recharts;
+
+            return (
+                <div className="max-w-7xl mx-auto space-y-12">
+                    {/* Title Section */}
+                    <div className="text-center space-y-4 mb-12">
+                        <h1 className="text-4xl font-bold text-gray-800">
+                            Security Awareness Transformation
+                        </h1>
+                        <h2 className="text-2xl text-gray-600">
+                            Bird & Bird Success Story Analysis
+                        </h2>
+                        
+                        {/* Key Metrics */}
+                        <div className="grid grid-cols-3 gap-6 mt-8">
+                            <div className="bg-blue-50 p-4 rounded-lg">
+                                <p className="text-3xl font-bold text-blue-600">1400%</p>
+                                <p className="text-sm text-gray-600">Threat Detection Increase</p>
+                            </div>
+                            <div className="bg-green-50 p-4 rounded-lg">
+                                <p className="text-3xl font-bold text-green-600">80%</p>
+                                <p className="text-sm text-gray-600">Risk Reduction</p>
+                            </div>
+                            <div className="bg-purple-50 p-4 rounded-lg">
+                                <p className="text-3xl font-bold text-purple-600">60%</p>
+                                <p className="text-sm text-gray-600">Active Participants</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Charts Section */}
+                    <div className="space-y-8">
+                        {/* Threat Detection Chart */}
+                        <div className="chart-container">
+                            <h3 className="text-xl font-semibold mb-4">Threat Detection Journey</h3>
+                            <div className="h-64">
+                                <ResponsiveContainer width="100%" height="100%">
+                                    <LineChart data={monthlyData}>
+                                        <CartesianGrid strokeDasharray="3 3" />
+                                        <XAxis dataKey="month" />
+                                        <YAxis />
+                                        <Tooltip />
+                                        <Legend />
+                                        <Line 
+                                            type="monotone" 
+                                            dataKey="reports" 
+                                            name="Monthly Reports" 
+                                            stroke="#2563eb" 
+                                            strokeWidth={2} 
+                                        />
+                                    </LineChart>
+                                </ResponsiveContainer>
+                            </div>
+                        </div>
+
+                        {/* Success vs Failure Rates Chart */}
+                        <div className="chart-container">
+                            <h3 className="text-xl font-semibold mb-4">Success vs Failure Rates</h3>
+                            <div className="h-64">
+                                <ResponsiveContainer width="100%" height="100%">
+                                    <LineChart data={monthlyData}>
+                                        <CartesianGrid strokeDasharray="3 3" />
+                                        <XAxis dataKey="month" />
+                                        <YAxis />
+                                        <Tooltip />
+                                        <Legend />
+                                        <Line 
+                                            type="monotone" 
+                                            dataKey="success" 
+                                            name="Success Rate %" 
+                                            stroke="#22c55e" 
+                                            strokeWidth={2} 
+                                        />
+                                        <Line 
+                                            type="monotone" 
+                                            dataKey="failure" 
+                                            name="Failure Rate %" 
+                                            stroke="#ef4444" 
+                                            strokeWidth={2} 
+                                        />
+                                    </LineChart>
+                                </ResponsiveContainer>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Metrics Dashboard */}
+                    <div className="grid grid-cols-2 gap-6">
+                        <div className="chart-container">
+                            <h3 className="text-xl font-semibold mb-4">Key Performance Indicators</h3>
+                            <div className="space-y-4">
+                                <div className="bg-gray-50 p-4 rounded-lg">
+                                    <div className="flex justify-between mb-2">
+                                        <span>Threat Detection</span>
+                                        <span className="text-green-600">+1400%</span>
+                                    </div>
+                                    <div className="w-full bg-gray-200 rounded-full h-2">
+                                        <div 
+                                            className="bg-green-600 h-2 rounded-full" 
+                                            style={{width: '100%'}}
+                                        ></div>
+                                    </div>
+                                </div>
+                                <div className="bg-gray-50 p-4 rounded-lg">
+                                    <div className="flex justify-between mb-2">
+                                        <span>Risk Reduction</span>
+                                        <span className="text-blue-600">-80%</span>
+                                    </div>
+                                    <div className="w-full bg-gray-200 rounded-full h-2">
+                                        <div 
+                                            className="bg-blue-600 h-2 rounded-full" 
+                                            style={{width: '80%'}}
+                                        ></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div className="chart-container">
+                            <h3 className="text-xl font-semibold mb-4">Business Impact</h3>
+                            <div className="space-y-4">
+                                <div className="bg-gray-50 p-4 rounded-lg">
+                                    <p className="text-sm text-gray-600">Cost Savings</p>
+                                    <p className="text-2xl font-bold">€150,000/year</p>
+                                </div>
+                                <div className="bg-gray-50 p-4 rounded-lg">
+                                    <p className="text-sm text-gray-600">Time Saved</p>
+                                    <p className="text-2xl font-bold">400 hours/year</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            );
+        }
+
+        // Render
+        ReactDOM.render(
+            <SecurityAnalysis />,
+            document.getElementById('root')
+        );
+    </script>
+</body>
+</html>
